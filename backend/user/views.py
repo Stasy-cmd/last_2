@@ -40,7 +40,7 @@ class SubscribeView(generics.ListAPIView):
     def get_queryset(self):
         user = self.request.user
         return User.objects.filter(
-            followings__user=user,
+            following__user=user,
         )
 
 
