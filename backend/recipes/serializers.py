@@ -109,11 +109,11 @@ class RecipeSerializer(serializers.ModelSerializer):
 
     def get_is_favorited(self, obj):
         user = self.context["request"].user.id
-        return obj.favorites.filter(user=user).exists()
+        return obj.favorites_lists.filter(user=user).exists()
 
     def get_is_in_shopping_cart(self, obj):
         user = self.context["request"].user.id
-        return obj.shopping_list.filter(user=user).exists()
+        return obj.shopping_lists.filter(user=user).exists()
 
 
 class RecipeCreateSerializer(serializers.ModelSerializer):
